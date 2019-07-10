@@ -9,15 +9,11 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
-import BetsList from "./components/bets/bets-list.component";
-import EditBet from "./components/bets/edit-bet.component";
-
 import { Provider } from "react-redux";
 import store from "./store";
 
 import PrivateRoute from "./components/auth/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import JoinBet from "./components/bets/join-bet.component";
 
 
 // Check for token to keep user logged in
@@ -55,10 +51,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
-
-            <Route path="/bets" exact component={BetsList} />
-            <Route path="bets/join/:id" component={JoinBet} />
-
 
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />

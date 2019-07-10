@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const PORT = 5000;
 
 const userRoutes = require("./routes/api/user");
-const betRoutes = require("./routes/api/bet");
 
 // Initializations
 app.use(cors());
@@ -32,7 +31,6 @@ connection.once('open', function() {
 
 // Register Routes / Endpoints
 app.use("/api/users", userRoutes);
-app.use('/api/bets', betRoutes);
 
 // Begin listening
 app.listen(PORT, function() {

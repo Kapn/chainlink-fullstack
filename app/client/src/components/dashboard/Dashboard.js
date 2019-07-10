@@ -6,7 +6,7 @@ import { logoutUser } from "../../actions/authActions";
 
 // WEB3 and Contracts
 import getWeb3 from "../../utils/getWeb3"
-import SmartBetContract from "../../contracts/SmartBet.json"
+import TestContract from "../../contracts/ChainlinkTest.json"
 
 class Dashboard extends Component {    
 
@@ -25,9 +25,9 @@ class Dashboard extends Component {
     
           // Get the contract instance.
           const networkId = await web3.eth.net.getId();
-          const deployedNetwork = SmartBetContract.networks[networkId];
+          const deployedNetwork = TestContract.networks[networkId];
           const contractInstance = new web3.eth.Contract(
-            SmartBetContract.abi,
+            TestContract.abi,
             deployedNetwork && deployedNetwork.address,
           );
 
@@ -69,18 +69,7 @@ class Dashboard extends Component {
         // set price to tbd while requesting
         this.setState({currentEthPrice: "TBD"});
 
-        // call SmartBetContract method to requestEthereumPrice
-        const result = await this.state.contract.methods.getOraclePayment().call({from: this.state.accounts[0]},
-        // const result = await this.state.contract.methods.getOraclePayment().send({from: this.state.accounts[0]},
-            function(err,result){
-                if(err)
-                    console.log(err);
-                else
-                    console.log("getOraclePaymentResult:", result, result.toString());
-        });        
-
-
-        
+        // Request Ethereum Price, passing Oracle Address and Job ID parameters
         const ethPriceResult = await this.state.contract.methods.requestEthereumPrice("0xc99B3D447826532722E41bc36e644ba3479E4365", "9f0406209cf64acda32636018b33de11").send({from: this.state.accounts[0]},
             function(err,result){
                 if(err)
@@ -107,17 +96,10 @@ class Dashboard extends Component {
                             <b>Hey there,</b> { user.username }  <br></br>                            
                             <p className="flow-text grey-text text-darken-1">
                                 You are logged into {" "}
-                                <span style={{ fontFamily: "monospace" }}>SMARTBETS</span> 👏
+                                <span style={{ fontFamily: "monospace" }}>chainlink-fullstack</span> 👏
                             </p>
                         </h4>
-                        <Link to="/bets" className="btn btn-large waves-effect waves-light hoverable orange accent-3"
-                        style={{
-                            width: "150px",
-                            borderRadius: "3px",
-                            letterSpacing: "1.5px",
-                            margin: "1rem"                                
-                        }}>View Bets</Link>
-
+                        
                         <button
                             style={{
                                 width: "150px",

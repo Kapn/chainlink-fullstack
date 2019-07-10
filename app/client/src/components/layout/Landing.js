@@ -6,10 +6,7 @@ class Landing extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="col s12 center-align">
-            {/* <h4>              
-              <span style={{ fontFamily: "monospace" }}>SMART BETS</span>              
-            </h4> */}
+          <div className="col s12 center-align">            
             <p className="flow-text grey-text text-darken-1">
               hop in
             </p>

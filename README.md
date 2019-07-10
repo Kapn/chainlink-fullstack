@@ -29,12 +29,14 @@ npm run client
 
 In the root directory run:
 ```
-npm run migrateropsten
+npm run migrate-ropsten
 ```
 
 # Dont forget
 Supply LINK to your contract [LINK Ropsten faucet](https://ropsten.chain.link/)
 
 Supply ETH to your Wallet [ETH Ropsten faucet](https://faucet.ropsten.be/)
+
+Have MetaMask installed
 
 

@@ -39,4 +39,5 @@ Supply ETH to your Wallet [ETH Ropsten faucet](https://faucet.ropsten.be/)
 
 Have MetaMask installed
 
+![Dashboard Image](/dashboard.png)
 
